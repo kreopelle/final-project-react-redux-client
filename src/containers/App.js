@@ -3,7 +3,7 @@ import './App.css'
 import Sounds from './Sounds'
 import SoundForm from './SoundForm'
 
-// const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 
 class App extends Component {
   constructor(){
@@ -13,20 +13,10 @@ class App extends Component {
     }
   }
 
-  //
-  // componentDidMount(){
-  //   fetch(`${API_URL}/sounds`)
-  //   .then(resp => resp.json())
-  //   .then(sounds => this.setState({ sounds }))
-  // }
-
-  addSound = sound => {
-    debugger
-    console.log("Sounds: ", this.state.sounds)
-    console.log("New Sound: ", sound)
-    this.setState({
-      sounds: [...this.state.sounds, sound]
-    })
+  componentDidMount(){
+    fetch(`${API_URL}/sounds`)
+    .then(resp => resp.json())
+    .then(sounds => this.setState({ sounds }))
   }
 
   render(){

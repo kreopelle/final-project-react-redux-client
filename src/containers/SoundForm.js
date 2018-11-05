@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// connect later
 
 class SoundForm extends Component {
     state = {
@@ -13,21 +12,19 @@ class SoundForm extends Component {
     })
   }
 
-  handleOnSubmit = event => {
-    event.preventDefault()
-    debugger
-    this.props.addSound({title: event.target.children[1].value, description: event.target.children[4].value })
-    this.setState({
-      title: '',
-      description: ''
-    })
-    // fetch('http://localhost:3001/api/sounds', {
-    //   method: 'POST',
-    //   body: JSON.stringify(sound: this.state)
-    // })
-    // .then(resp => resp.json())
-    // .then(sound => console.log(sound))
-  }
+    handleOnSubmit = event => {
+      event.preventDefault()
+      const title = event.target.children[1].value
+      const description = event.target.children[4].value
+      fetch(`http://localhost:3001/api/sounds`, {
+        method: 'POST',
+        body: JSON.stringify({sound:
+          {title: title, description: description}
+        }),
+      })
+      .then(resp => resp.json())
+      .then(sound => console.log(sound))
+    }
 
   render(){
     return(
@@ -37,6 +34,7 @@ class SoundForm extends Component {
           <input type="text" name="title" value={this.state.title} onChange={this.handleOnChange} /><br />
           <label>Description: </label>
           <input type="text" name="description" value={this.state.description} onChange={this.handleOnChange} /><br />
+          <input type="file" name="sound" data-direct-upload-url="/rails/active_storage/direct_upload/" />
           <input type="submit" />
         </form>
       </div>
@@ -47,4 +45,4 @@ class SoundForm extends Component {
 export default SoundForm
 
 
-        // <input type="file" name="sound" data-direct-upload-url="/rails/active_storage/direct_upload/" />
+  //

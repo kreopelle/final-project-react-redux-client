@@ -1,5 +1,5 @@
 import React from 'react'
-debugger
+
 const SoundCard = ({ sound }) =>
   <div>
     <h5>Title: {sound.title} </h5>
