@@ -16,11 +16,13 @@ class SoundForm extends Component {
       event.preventDefault()
       const title = event.target.children[1].value
       const description = event.target.children[4].value
+      const data = {sound: {title: title, description: description}}
       fetch(`http://localhost:3001/api/sounds`, {
         method: 'POST',
-        body: JSON.stringify({sound:
-          {title: title, description: description}
-        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       })
       .then(resp => resp.json())
       .then(sound => console.log(sound))
