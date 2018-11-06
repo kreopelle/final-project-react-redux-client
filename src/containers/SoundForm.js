@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import SoundUpload from '../'
 
 class SoundForm extends Component {
     state = {
