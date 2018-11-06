@@ -36,7 +36,9 @@ class SoundForm extends Component {
           <input type="text" name="title" value={this.state.title} onChange={this.handleOnChange} /><br />
           <label>Description: </label>
           <input type="text" name="description" value={this.state.description} onChange={this.handleOnChange} /><br />
-          <input type="file" name="sound" data-direct-upload-url="/rails/active_storage/direct_upload/" />
+          {/*
+            <input type="file" name="sound" data-direct-upload-url="/rails/active_storage/direct_upload/" />
+          */}
           <input type="submit" />
         </form>
       </div>
@@ -45,6 +47,3 @@ class SoundForm extends Component {
 }
 
 export default SoundForm
-
-
-  //
